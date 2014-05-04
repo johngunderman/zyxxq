@@ -5,6 +5,9 @@ window.onload = function() {
     if (!supports_html5_storage()) {
         console.log("local storage not supported");
     } else {
+        // TODO: pull this out into a separate function that
+        // escapes all the html (except divs because we need
+        // them for newlines.
         $("#content-box-div").html(localStorage["content"]);
         $("#content-box-div").keyup(function() {
             localStorage["content"] = $("#content-box-div").html();
