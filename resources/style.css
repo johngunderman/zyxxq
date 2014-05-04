@@ -1,0 +1,17 @@
+.input-bounding-box {
+    width: fill;
+}
+
+.main-content-input {
+    height: 30px;
+    overflow: hidden;
+}
+
+.mono {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.no-borders {
+    border: 0;
+    outline: none;
+}
