@@ -19,6 +19,9 @@
 
 .no-borders {
     border: 0;
+}
+
+.no-outline {
     outline: none;
 }
 

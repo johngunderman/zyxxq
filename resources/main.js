@@ -10,6 +10,14 @@ window.onload = function() {
             localStorage["content"] = $("#content-box-div").html();
         });
     }
+    $("#submit-button").click(function() {
+        $.post("/post",
+               $("#content-box-div").html(),
+               function(data, textStatus, jqXHR) {
+                   //TODO: give the user their edit-key.
+                   //localStorage["content"] = "";
+                   location.reload();
+               })});
 }
 
 function supports_html5_storage() {
