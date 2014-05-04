@@ -1,11 +1,21 @@
 "use strict";
 
 window.onload = function() {
-    $("#content").keyup(function(e) {
-        while($(this).outerHeight() < (this.scrollHeight
-                                       + parseFloat($(this).css("borderTopWidth"))
-                                       + parseFloat($(this).css("borderBottomWidth"))) {
-            $(this).height($(this).height()+1);
-        };
-    });
+    $("#content-box-div")[0].focus();
+    if (!supports_html5_storage()) {
+        console.log("local storage not supported");
+    } else {
+        $("#content-box-div").html(localStorage["content"]);
+        $("#content-box-div").keyup(function() {
+            localStorage["content"] = $("#content-box-div").html();
+        });
+    }
+}
+
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
 }
